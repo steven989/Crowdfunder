@@ -24,10 +24,21 @@ class ProjectsController < ApplicationController
         @project = Project.new(project_params)
 
         if @project.save
+
+            params[:project][:tiers_attributes].each { |key, value|
+
+                Tier.create(project_id: @project.id, amount: value[:amount], rewards: value[:rewards])
+
+            }
+            
             redirect_to project_path(@project)
+
         else 
             render :new
         end 
+
+
+
 
     end 
 
@@ -64,7 +75,7 @@ class ProjectsController < ApplicationController
 
     def project_params
 
-        params.require(:project).permit(:id, :title,:description,:start_date,:end_date,:goal)
+        params.require(:project).permit(:title,:description,:start_date,:end_date,:goal)
 
     end 
 
