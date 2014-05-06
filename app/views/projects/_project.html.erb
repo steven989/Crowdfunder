@@ -1,10 +1,11 @@
+
 <div class="project">
 
-    <p><%= project.title %></p>
+    <p><%= link_to project.title, project_path(project) %></p>
     <p><%= project.description %></p>
-    <p><%= project.start_date %></p>
-    <p><%= project.end_date %></p>
-    <p><%= project.goal %></p>
-    <p><%= project.raised %></p>
+    <p>Start: <%= project.start_date %></p>
+    <p>End: <%= project.end_date %></p>
+    <p>Goal: <%= project.goal %></p>
+    <p>Amount raised: <%= project.raised %></p>
 
 </div>

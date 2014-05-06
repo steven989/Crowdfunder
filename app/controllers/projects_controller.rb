@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
     def show
 
         @project = Project.find_by(id: params[:id])
-        @tiers = @project.tiers
+        @tier = @project.tiers
 
     end 
     
