@@ -8,4 +8,6 @@
     <p>Goal: <%= project.goal %></p>
     <p>Amount raised: <%= project.raised %></p>
 
+    <p>Time remaining: <%= [(project.end_date - Date.today).to_i,0].max %></p>  
+
 </div>
