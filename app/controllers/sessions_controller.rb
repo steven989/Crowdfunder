@@ -6,10 +6,11 @@ class SessionsController < ApplicationController
 
     def create
 
-        if login(params[:email], params[:password])
+        if login(params[:email], params[:passsword])
+            flash[:notice] = "Login successful"
             redirect_back_or_to :root
         else
-            flash.now[:alert] = "Login Failed"
+            flash.[:notice] = "Login failed. Try again."
             render :new
         end 
 
@@ -18,6 +19,7 @@ class SessionsController < ApplicationController
 
     def destroy
         logout
+        flash[:notice] = "Logout successful"
         redirect_back_or_to :root
     end 
 

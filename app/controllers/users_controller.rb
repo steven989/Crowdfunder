@@ -13,8 +13,10 @@ class UsersController < ApplicationController
         auto_login(@user)
 
         if @user.save
+            flash[:notice] = "User successfully created!"
             redirect_to :root
         else 
+            flash[:notice] = "Something went wrong. Try again."
             render :new
         end 
 
