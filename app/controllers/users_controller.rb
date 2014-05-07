@@ -6,6 +6,14 @@ class UsersController < ApplicationController
 
     end 
 
+    def show
+
+        @user = current_user
+        @projects = @user.pledges.inject([]) {|projects,pledge| projects.push(pledge.tier.project) unless projects.include? (pledge.tier.project); projects}
+        @total_spent = @user.total_spent
+
+    end 
+
     def create
 
         @user = User.new(user_params)
