@@ -12,7 +12,8 @@
 
     <% if project.user == current_user %>
 
-        <p> <%= link_to 'Edit', edit_project_path(project) %> </p>
+        <p> <%= link_to 'Edit project', edit_project_path(project) %> </p>
+        <p> <%= link_to 'Delete project', project_path(project), method: 'delete' %> </p>
 
     <% end %>
 

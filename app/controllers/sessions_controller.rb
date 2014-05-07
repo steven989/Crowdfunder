@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
     def create
 
-        if login(params[:email], params[:passsword])
+        if login(params[:email], params[:password])
             flash[:notice] = "Login successful"
             redirect_back_or_to :root
         else
