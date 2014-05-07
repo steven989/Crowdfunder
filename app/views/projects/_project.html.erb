@@ -10,4 +10,10 @@
 
     <p>Time remaining: <%= [(project.end_date - Date.today).to_i,0].max %></p>  
 
+    <% if project.user == current_user %>
+
+        <p> <%= link_to 'Edit', edit_project_path(project) %> </p>
+
+    <% end %>
+
 </div>
