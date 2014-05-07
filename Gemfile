@@ -10,6 +10,8 @@ gem 'pg'
 
 gem "cocoon"
 
+gem "sorcery"
+
 gem 'hirb'
 
 gem 'simple_form'
