@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     def show
 
         @user = current_user
-        @projects = @user.pledges.inject([]) {|projects,pledge| projects.push(pledge.tier.project); projects}
+        @projects = @user.pledges.inject([]) {|projects,pledge| projects.push(pledge.tier.project) unless projects.include? (pledge.tier.project); projects}
         @total_spent = @user.total_spent
 
     end 
