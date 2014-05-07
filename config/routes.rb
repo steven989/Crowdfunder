@@ -5,7 +5,11 @@ Crowdfunder::Application.routes.draw do
 
   resources :projects do
 
-    resources :tiers, only: [:create, :edit, :destroy]
+    resources :tiers, only: [:create, :edit, :destroy] do
+
+      resources :pledges, only: [:new, :create], as: "pledges"
+
+    end
 
   end 
 
