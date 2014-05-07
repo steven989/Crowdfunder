@@ -6,4 +6,18 @@ class Project < ActiveRecord::Base
 
     accepts_nested_attributes_for :tiers, :reject_if => :all_blank, :allow_destroy => true
 
+    def self.total_amount(id)
+      @project = Project.find(id)
+
+      puts @project.tiers.inspect
+
+      sum = 0
+      @project.tiers.each do |tier|
+        sum += tier.amount * tier.pledges.length
+      end
+
+      return sum
+
+    end
+
 end

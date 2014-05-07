@@ -7,7 +7,7 @@ class PledgesController < ApplicationController
 
   
   def create
-    # @project = Project.find(params[:project_id])
+    @project = Project.find(params[:project_id])
     @tier = Tier.find(params[:tier_id])
     @user = current_user
     @pledge = Pledge.new
@@ -17,7 +17,7 @@ class PledgesController < ApplicationController
 
     respond_to do |format|
       if @pledge.save
-        format.json { render :json => @pledge.tier.amount }
+        format.json { render :json => Project.total_amount(@project) }
       else
         render @project
       end
