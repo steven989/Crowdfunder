@@ -1,5 +1,3 @@
-<p><%= link_to "Home", root_url %></p>
-
 <div class="is_backed">
   <% @project.pledges.each do |p| %>  
     <% if p.user == current_user %>
