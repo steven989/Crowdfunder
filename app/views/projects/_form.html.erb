@@ -1,27 +1,26 @@
 <div class="project-details">
   <%= simple_form_for @project do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :goal %>
-</div>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :goal %>
 
-<div class="tags">
-  <%= f.input :tag_list %>
-</div>
-
-
-<h3>Tiers</h3>
-  <div id="tiers">
-  <%= f.simple_fields_for :tiers do |tier| %>
-  <%= render "tier_fields", :f => tier %>
-  <% end %>
-    <div class="links">
-      <%= link_to_add_association "add tier", f, :tiers %>
+    <div class="tags">
+      <%= f.input :tag_list %>
     </div>
-  </div>
 
-<%= f.submit "Save project" %>
+    <h3>Tiers</h3>
+      <div id="tiers">
+        <%= f.simple_fields_for :tiers do |tier| %>
+          <%= render "tier_fields", :f => tier %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association "add tier", f, :tiers %>
+        </div>
+      </div>
 
-<% end %>   
+      <%= f.submit "Save project" %>
+
+  <% end %>
+</div>

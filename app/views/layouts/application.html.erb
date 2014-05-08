@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= render partial: 'shared/header' %>
+<%= link_to("home", projects_path) %>
+
+<div id="tag_cloud">
+  <% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
 
 <%= yield %>
 

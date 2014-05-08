@@ -17,7 +17,7 @@ Crowdfunder::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  get 'tags/:tag', to: 'articles#index', as: :tag
+  get 'tags/:tag', to: 'projects#index', as: :tag
 
 
   # The priority is based upon order of creation: first created -> highest priority.
