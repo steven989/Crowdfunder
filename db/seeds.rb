@@ -154,9 +154,9 @@ Project.create(
 
         title: "Fly to space",
         description: "We want to build a spaceship to boldly go where no man has gone before",
-        start_date: "2014-06-21",
+        start_date: "2014-05-21",
         end_date: "2015-06-21",
-        goal: 3000000000,
+        goal: 30000000,
         raised: 0,
         user_id: 1,
         category_id: 2
