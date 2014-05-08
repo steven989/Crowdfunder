@@ -4,16 +4,21 @@ class ProjectsController < ApplicationController
 
     def index
 
-        if params[:category] && params[:category] != ""
+
+        if params[:category] && params[:category] != "" && params[:tag]
             
+            @projects = Project.tagged_with(params[:tag]).where(category_id: params[:category]).order('created_at DESC').page(params[:page])
+
+        elsif params[:category] && params[:category] != "" && !(params[:tag])
+
             @projects = Project.where(category_id: params[:category]).order('created_at DESC').page(params[:page])
 
-        elsif params[:tag]
+        elsif !(params[:category] && params[:category] != "") && params[:tag]
 
             @projects = Project.tagged_with(params[:tag]).order('created_at DESC').page(params[:page])
 
         else 
-
+            
             @projects = Project.all.order('created_at DESC').page(params[:page])
 
         end
@@ -44,6 +49,8 @@ class ProjectsController < ApplicationController
 
 
     def create
+
+        params[:project][:user_id] = current_user.id
 
         @project = Project.new(project_params)
 
@@ -112,7 +119,7 @@ class ProjectsController < ApplicationController
 
     def project_params
 
-        params.require(:project).permit(:title,:description,:start_date,:end_date,:goal,:tag_list,:category_id)
+        params.require(:project).permit(:title,:description,:start_date,:end_date,:goal,:tag_list,:category_id,:user_id)
 
     end 
 

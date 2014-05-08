@@ -49,4 +49,20 @@ $(document).ready(function(){
     });
 
 
+    $('.cloud-item').click(function(){
+        
+        event.preventDefault();
+        
+        console.log($(this).attr('href')+'?category='+$('.category_select').val())
+
+        $.ajax({
+
+            url: $(this).attr('href')+'?category='+$('.category_select').val(),
+            type: 'GET',
+            dataType: 'script'
+
+        })
+        
+    });
+
 });
