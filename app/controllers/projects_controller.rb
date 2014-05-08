@@ -4,11 +4,20 @@ class ProjectsController < ApplicationController
 
     def index
 
+<<<<<<< HEAD
       if params[:tag]
         @projects = Project.tagged_with(params[:tag])
       else
         @projects = Project.all
       end
+=======
+        @projects = Project.all.order('created_at DESC').page(params[:page])
+
+        respond_to do |format|
+            format.html
+            format.js
+        end 
+>>>>>>> ce53dd68730b0555336a533c229a410b24abe888
 
     end 
 
@@ -81,7 +90,11 @@ class ProjectsController < ApplicationController
 
     def project_params
 
+<<<<<<< HEAD
         params.require(:project).permit(:title,:description,:start_date,:end_date,:goal,:tag_list)
+=======
+        params.require(:project).permit(:title,:description,:start_date,:end_date,:goal,:category_id)
+>>>>>>> ce53dd68730b0555336a533c229a410b24abe888
 
     end 
 

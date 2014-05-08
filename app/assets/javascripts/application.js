@@ -15,3 +15,24 @@
 //= require turbolinks
 //= require_tree .
 //= require cocoon
+
+$(document).ready(function(){
+
+    $(window).on('scroll', function(){
+
+        if ($(window).scrollTop() >= $(document).height() - $(window).height() - 50 && $('.pagination .next a').attr('href')) {
+
+            $.ajax({
+                url: $('.pagination .next a').attr('href'),
+                type: 'GET',
+                dataType: 'script'
+            });
+
+            $('.pagination').html('<p>Waiting for a response</p>')
+
+        }
+
+
+    });
+
+});

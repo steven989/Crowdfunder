@@ -16,6 +16,12 @@ ActiveRecord::Schema.define(version: 20140508181402) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pledges", force: true do |t|
     t.integer  "tier_id"
     t.integer  "user_id"
@@ -34,6 +40,7 @@ ActiveRecord::Schema.define(version: 20140508181402) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "category_id"
   end
 
   create_table "taggings", force: true do |t|
