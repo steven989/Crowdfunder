@@ -23,7 +23,7 @@ $(document).ready(function(){
         if ($(window).scrollTop() >= $(document).height() - $(window).height() - 50 && $('.pagination .next a').attr('href')) {
 
             $.ajax({
-                url: $('.pagination .next a').attr('href'),
+                url: $('.pagination .next a').attr('href')+'&category='+$('.category_select').val()+'&scroll=true',
                 type: 'GET',
                 dataType: 'script'
             });
@@ -34,5 +34,17 @@ $(document).ready(function(){
 
 
     });
+
+
+    $('.category_select').on('change',function(){
+
+        $.ajax({
+            url: '/?category='+$(this).val(),
+            type: 'GET',
+            dataType: 'script'
+        });
+
+    });
+
 
 });

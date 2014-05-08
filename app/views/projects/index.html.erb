@@ -3,6 +3,10 @@
 
 <h1>Here are all the projects</h1>
 
+<h3>Filter by project category:</h3>
+<%= select_tag 'Category', options_from_collection_for_select(@categories, 'id', 'name'), include_blank: true, class: "category_select" %>
+
+
 <div class="projects_container">
 
     <%= render @projects %>
@@ -11,4 +15,4 @@
 
 <div class="paginate_contaner">
 <%= paginate @projects %>
-</div>     
+</div>

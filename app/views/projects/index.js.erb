@@ -1,4 +1,13 @@
 
+<% if params[:scroll] %>
+
 $('.projects_container').append("<%= j(render @projects) %>")
 
 $('.paginate_contaner').html("<%= j(paginate @projects) %>")
+
+<% else %>
+
+$('.projects_container').html("<%= j(render @projects) %>")
+$('.paginate_contaner').html("<%= j(paginate @projects) %>")
+
+<% end %>

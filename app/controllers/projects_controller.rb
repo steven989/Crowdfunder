@@ -4,7 +4,17 @@ class ProjectsController < ApplicationController
 
     def index
 
-        @projects = Project.all.order('created_at DESC').page(params[:page])
+        if params[:category] && params[:category] != ""
+            
+            @projects = Project.where(category_id: params[:category]).order('created_at DESC').page(params[:page])
+
+        else 
+
+            @projects = Project.all.order('created_at DESC').page(params[:page])
+
+        end
+
+        @categories = Category.all
 
         respond_to do |format|
             format.html
