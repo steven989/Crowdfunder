@@ -1,7 +1,7 @@
 <div class="is_backed">
   <% @project.pledges.each do |p| %>  
     <% if p.user == current_user %>
-      <p>You have backed this project</p>
+      <p id="backed">You have backed this project</p>
       <% break %>
     <% end %>
   <% end %>

@@ -6,15 +6,7 @@ gem 'rails', '4.0.4'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 
-gem 'pg'
 
-gem "cocoon"
-
-gem "sorcery"
-
-gem 'hirb'
-
-gem 'simple_form'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -53,3 +45,18 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+
+
+# Custom gems
+
+gem "acts-as-taggable-on"
+gem "cocoon"
+gem 'hirb'
+gem 'pg'
+gem "sorcery"
+gem 'simple_form'
+
+
+
+
