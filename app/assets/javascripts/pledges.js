@@ -1,4 +1,3 @@
-// $(document).ready(function()
 $(document).on('page:load', function() {
 
   $(".tier").click(function(event) {
@@ -14,10 +13,8 @@ $(document).on('page:load', function() {
       type: "POST",
       dataType: "json",
     }).done(function(data){
-      console.log(data)
       $("#raised span").text(data);
     }).fail(function() {
-      console.log(data);
       alert("Pledge failed, please click again");
     });
   });
