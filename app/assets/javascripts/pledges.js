@@ -1,5 +1,5 @@
 
-  $(document).on('page:load', function() {
+  $(document).ready(function() {
 
     $(".tier").click(function(event) {
       event.preventDefault();
@@ -11,28 +11,29 @@
         
         if (confirm("you already backed this project, are you sure you want to back it again?")) {
 
+          pledge();
 
-          var url = "/projects/"+projectId+"/tiers/"+tierId+"/pledges";
+          } else { } ;
 
-          $.ajax({
-            url: url,
-            type: "POST",
-            dataType: "json",
-          }).done(function(data){
-            $("#raised span").text(data);
-          }).fail(function() {
-            alert("Pledge failed, please click again");
-          });
+        } else {
 
-          } else {
-          // do nothing
-        };
-      };
-
-
+          pledge();
+        }
     });
 
-
-
-
   });
+
+
+function pledge() {
+  var url = "/projects/"+projectId+"/tiers/"+tierId+"/pledges";
+
+    $.ajax({
+      url: url,
+      type: "POST",
+      dataType: "json",
+    }).done(function(data){
+      $("#raised span").text(data);
+    }).fail(function() {
+      alert("Pledge failed, please click again");
+    });
+  }

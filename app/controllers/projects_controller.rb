@@ -8,6 +8,10 @@ class ProjectsController < ApplicationController
             
             @projects = Project.where(category_id: params[:category]).order('created_at DESC').page(params[:page])
 
+        elsif params[:tag]
+
+            @projects = Project.tagged_with(params[:tag]).order('created_at DESC').page(params[:page])
+
         else 
 
             @projects = Project.all.order('created_at DESC').page(params[:page])
@@ -23,6 +27,7 @@ class ProjectsController < ApplicationController
 
     end 
 
+
     def show
 
         @project = Project.find_by(id: params[:id])
@@ -30,11 +35,13 @@ class ProjectsController < ApplicationController
 
     end 
     
+
     def new
 
         @project = Project.new
 
     end 
+
 
     def create
 
@@ -92,7 +99,7 @@ class ProjectsController < ApplicationController
 
     def project_params
 
-        params.require(:project).permit(:title,:description,:start_date,:end_date,:goal,:category_id)
+        params.require(:project).permit(:title,:description,:start_date,:end_date,:goal,:tag_list,:category_id)
 
     end 
 
