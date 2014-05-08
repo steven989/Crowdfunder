@@ -4,7 +4,11 @@ class ProjectsController < ApplicationController
 
     def index
 
+      if params[:tag]
+        @projects = Project.tagged_with(params[:tag])
+      else
         @projects = Project.all
+      end
 
     end 
 
@@ -77,7 +81,7 @@ class ProjectsController < ApplicationController
 
     def project_params
 
-        params.require(:project).permit(:title,:description,:start_date,:end_date,:goal)
+        params.require(:project).permit(:title,:description,:start_date,:end_date,:goal,:tag_list)
 
     end 
 

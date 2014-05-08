@@ -9,6 +9,7 @@
     <p id="raised">Amount raised: <span><%= Project.total_amount(project.id) %></span></p>
 
     <p>Time remaining: <%= [(project.end_date - Date.today).to_i,0].max %></p>  
+    <p>Tags: <%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 
     <% if project.user == current_user %>
 

@@ -6,6 +6,8 @@ class Project < ActiveRecord::Base
 
     accepts_nested_attributes_for :tiers, :reject_if => :all_blank, :allow_destroy => true
 
+    acts_as_taggable
+
     def self.total_amount(id)
       @project = Project.find(id)
 

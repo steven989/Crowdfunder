@@ -1,11 +1,15 @@
-<%= simple_form_for @project do |f| %>
-<%= f.input :title %>
-<%= f.input :description %>
-<%= f.input :start_date %>
-<%= f.input :end_date %>
-<%= f.input :goal %>
+<div class="project-details">
+  <%= simple_form_for @project do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :goal %>
+</div>
 
-
+<div class="tags">
+  <%= f.input :tag_list %>
+</div>
 
 <h3>Tiers</h3>
   <div id="tiers">
