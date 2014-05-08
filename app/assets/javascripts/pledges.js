@@ -1,4 +1,5 @@
-$(document).ready(function(){
+// $(document).ready(function()
+$(document).on('page:load', function() {
 
   $(".tier").click(function(event) {
     event.preventDefault();
