@@ -1,3 +1,5 @@
+<p><%= link_to "Home", root_url %></p>
+
 <div class="is_backed">
   <% @project.pledges.each do |p| %>  
     <% if p.user == current_user %>
@@ -6,7 +8,6 @@
     <% end %>
   <% end %>
 </div>
-
 
 <div class="show_project" id=<%= @project.id %>>
   <%= render @project %>
