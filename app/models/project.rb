@@ -9,8 +9,6 @@ class Project < ActiveRecord::Base
     def self.total_amount(id)
       @project = Project.find(id)
 
-      puts @project.tiers.inspect
-
       sum = 0
       @project.tiers.each do |tier|
         sum += tier.amount * tier.pledges.length

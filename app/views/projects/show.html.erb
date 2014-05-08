@@ -1,19 +1,21 @@
 <div class="is_backed">
-<% @project.pledges.each do |p| %>  
-  <% if p.user == current_user %>
-    <p>You have backed this project</p>
-    <% break %>
+  <% @project.pledges.each do |p| %>  
+    <% if p.user == current_user %>
+      <p>You have backed this project</p>
+      <% break %>
+    <% end %>
   <% end %>
-<% end %>
 </div>
 
+
 <div class="show_project" id=<%= @project.id %>>
-<%= render @project %>
+  <%= render @project %>
 </div>
+
 
 <div class="show_tiers">
 
-<h3>Pledge tiers:</h3>
- <%= render partial: "projects/tiers", collection: @tier %>
+  <h3>Pledge tiers:</h3>
+  <%= render partial: "projects/tiers", collection: @tier %>
 
 </div>

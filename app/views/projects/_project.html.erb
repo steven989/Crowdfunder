@@ -6,7 +6,7 @@
     <p>Start: <%= project.start_date %></p>
     <p>End: <%= project.end_date %></p>
     <p>Goal: <%= project.goal %></p>
-    <p id="raised">Amount raised: <span><%= project.raised %></span></p>
+    <p id="raised">Amount raised: <span><%= Project.total_amount(project.id) %></span></p>
 
     <p>Time remaining: <%= [(project.end_date - Date.today).to_i,0].max %></p>  
 
