@@ -34,7 +34,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'kaminari'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -56,8 +55,10 @@ gem "acts-as-taggable-on"
 gem "cocoon"
 gem 'hirb'
 gem 'pg'
+gem 'kaminari'
 gem "sorcery"
 gem 'simple_form'
+gem 'jquery-turbolinks'
 
 
 
