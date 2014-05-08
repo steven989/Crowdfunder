@@ -4,16 +4,21 @@ class ProjectsController < ApplicationController
 
     def index
 
-        if params[:category] && params[:category] != ""
+
+        if params[:category] && params[:category] != "" && params[:tag]
             
+            @projects = Project.tagged_with(params[:tag]).where(category_id: params[:category]).order('created_at DESC').page(params[:page])
+
+        elsif params[:category] && params[:category] != "" && !(params[:tag])
+
             @projects = Project.where(category_id: params[:category]).order('created_at DESC').page(params[:page])
 
-        elsif params[:tag]
+        elsif !(params[:category] && params[:category] != "") && params[:tag]
 
             @projects = Project.tagged_with(params[:tag]).order('created_at DESC').page(params[:page])
 
         else 
-
+            
             @projects = Project.all.order('created_at DESC').page(params[:page])
 
         end
