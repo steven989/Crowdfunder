@@ -1,6 +1,8 @@
 
 <div class="project">
-    <p><%= link_to project.title, project_path(project) %></p>
+    <p><%= link_to project.title, project_path(project) %>
+    by <%= /(.*)@/.match(project.user.email)[1] %>
+    </p>
     <% if project.category %>
     <p>Category: <%= project.category.name %></p>
     <% end %>
@@ -20,4 +22,5 @@
 
     <% end %>
 
+    <br>
 </div>
