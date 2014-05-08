@@ -5,6 +5,8 @@ Crowdfunder::Application.routes.draw do
 
   resources :projects do
 
+    post "add_tag", on: :member
+
     resources :tiers, only: [:create, :edit, :destroy] do
 
       resources :pledges, only: [:new, :create], as: "pledges"

@@ -76,8 +76,7 @@ class ProjectsController < ApplicationController
     def update
 
         @project = Project.find_by(id: params[:id])
-
-        @project.update_attributes(project_params) 
+        @project.update_attributes(project_params)
 
         if @project.save
             redirect_to project_path(@project)
@@ -86,6 +85,20 @@ class ProjectsController < ApplicationController
         end 
 
     end 
+
+
+    def add_tag
+
+        @project = Project.find_by(id: params[:id])
+
+        @project.tag_list.add(params[:tag_list], parse: true)
+        @project.save
+
+        redirect_to project_path(@project)
+
+    end
+
+
 
     def destroy
 

@@ -1,0 +1,4 @@
+<%= form_tag(controller: "projects", action: "add_tag", method: "post", class: "nifty_form") do %>
+<%= text_field_tag :tag_list %>
+<%= submit_tag "Add tags" %>
+<% end %>
