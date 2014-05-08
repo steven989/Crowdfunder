@@ -50,6 +50,8 @@ class ProjectsController < ApplicationController
 
     def create
 
+        params[:project][:user_id] = current_user.id
+
         @project = Project.new(project_params)
 
         if @project.save
@@ -104,7 +106,7 @@ class ProjectsController < ApplicationController
 
     def project_params
 
-        params.require(:project).permit(:title,:description,:start_date,:end_date,:goal,:tag_list,:category_id)
+        params.require(:project).permit(:title,:description,:start_date,:end_date,:goal,:tag_list,:category_id,:user_id)
 
     end 
 
