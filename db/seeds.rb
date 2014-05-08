@@ -18,6 +18,16 @@ User.create(
         password_confirmation: "12345"
 )
 
+Category.create(
+        name: "Charity"
+)
+
+Category.create(
+        name: "Technology"
+)
+
+################ FEED THE HOMELESS
+
 Project.create(
 
         title: "Feed the homeless",
@@ -26,9 +36,9 @@ Project.create(
         end_date: "2014-06-01",
         goal: 1000000,
         raised: 0,
-        user_id: 1
-
-        )
+        user_id: 1,
+        category_id: 1
+)
 
 Tier.create(
         project_id: 1,
@@ -66,6 +76,8 @@ Pledge.create(
         project_id: 1
 )
 
+################ FEED THE CATS
+
 Project.create(
 
         title: "Feed the cats",
@@ -74,7 +86,8 @@ Project.create(
         end_date: "2014-06-09",
         goal: 2000000,
         raised: 0,
-        user_id: 2
+        user_id: 2,
+        category_id: 1
 
         )
 
@@ -102,6 +115,8 @@ Tier.create(
         rewards: "You will receive an authentic signed photo of the original grumpy cat!"
 )
 
+################ FEED THE RACOONS
+
 Project.create(
 
         title: "Feed the racoons",
@@ -110,7 +125,8 @@ Project.create(
         end_date: "2014-06-21",
         goal: 3000000,
         raised: 0,
-        user_id: 1
+        user_id: 1,
+        category_id: 1
 
         )
 
@@ -130,4 +146,37 @@ Tier.create(
         project_id: 3,
         amount: 100000,
         rewards: "Racoons will leave you alone FOR LIFE!"
+)
+
+################ FLY TO SPACE
+
+Project.create(
+
+        title: "Fly to space",
+        description: "We want to build a spaceship to boldly go where no man has gone before",
+        start_date: "2014-05-21",
+        end_date: "2015-06-21",
+        goal: 30000000,
+        raised: 0,
+        user_id: 1,
+        category_id: 2
+
+        )
+
+Tier.create(
+        project_id: 4,
+        amount: 100,
+        rewards: "You get a signed autograph from one of our astronauts."
+)
+
+Tier.create(
+        project_id: 4,
+        amount: 1000000,
+        rewards: "You and a friend will travel with us to space."
+)
+
+Pledge.create(
+        tier_id: 2,
+        user_id: 1,
+        project_id: 4
 )

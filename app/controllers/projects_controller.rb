@@ -4,7 +4,12 @@ class ProjectsController < ApplicationController
 
     def index
 
-        @projects = Project.all
+        @projects = Project.all.order('created_at DESC').page(params[:page])
+
+        respond_to do |format|
+            format.html
+            format.js
+        end 
 
     end 
 
@@ -77,7 +82,7 @@ class ProjectsController < ApplicationController
 
     def project_params
 
-        params.require(:project).permit(:title,:description,:start_date,:end_date,:goal)
+        params.require(:project).permit(:title,:description,:start_date,:end_date,:goal,:category_id)
 
     end 
 
