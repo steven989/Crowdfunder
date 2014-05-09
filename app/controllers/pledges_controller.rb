@@ -17,7 +17,20 @@ class PledgesController < ApplicationController
 
     respond_to do |format|
       if @pledge.save
-        format.json { render :json => @project.total_amount }
+
+        total = project.total_amount
+  
+        if total >= @project.goal
+
+          ProjectMailer.goal_reached(@project).deliver
+          
+        end
+
+
+        format.json { render :json => {:pledge_total => @project.total_amount,
+                                       :pledge_count => @pledge.tier.pledges.count }}
+
+
       else
         render @project
       end

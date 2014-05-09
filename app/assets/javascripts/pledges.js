@@ -32,7 +32,8 @@ function pledge() {
       type: "POST",
       dataType: "json",
     }).done(function(data){
-      $("#raised span").text(data);
+      $("#raised span").text(data["pledge_total"]);
+      $("#numOfPledges span").text(data["pledge_count"]);
     }).fail(function() {
       alert("Pledge failed, please click again");
     });
