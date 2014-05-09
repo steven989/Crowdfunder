@@ -16,4 +16,4 @@
 /tmp
 
 # Ignore this file that contains password 
-/config/environments/development.rb
+#/config/environments/development.rb
