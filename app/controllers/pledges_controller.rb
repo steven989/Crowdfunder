@@ -28,7 +28,8 @@ class PledgesController < ApplicationController
 
 
         format.json { render :json => {:pledge_total => @project.total_amount,
-                                       :pledge_count => @pledge.tier.pledges.count }}
+                                       :pledge_count => @pledge.tier.pledges.count,
+                                       :tier_id => @pledge.tier_id }}
 
 
       else

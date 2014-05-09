@@ -33,7 +33,12 @@ function pledge() {
       dataType: "json",
     }).done(function(data){
       $("#raised span").text(data["pledge_total"]);
-      $("#numOfPledges span").text(data["pledge_count"]);
+
+      $("#"+data["tier_id"]+" .numOfPledges span").text(data["pledge_count"]);
+
+      // if ($(".tier").attr("id") == data["tier_id"]) {     
+      //    $(".numOfPledges span").text(data["pledge_count"]);
+      // }
     }).fail(function() {
       alert("Pledge failed, please click again");
     });
