@@ -18,7 +18,7 @@ class PledgesController < ApplicationController
     respond_to do |format|
       if @pledge.save
 
-        total = project.total_amount
+        total = @project.total_amount
   
         if total >= @project.goal
 
