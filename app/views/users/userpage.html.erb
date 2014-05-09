@@ -4,7 +4,7 @@
 <h3>Following projects are currently set up buy the user: </h3>
 <div>
   <% @user.projects.each do |project| %>
-  <h4><%= project.title %></h4>
+  <h4><%= link_to project.title, project_path(project) %></h4>
   <p><%= project.description %></p>
   <p><%= project.goal %></p>
   <% end %>
