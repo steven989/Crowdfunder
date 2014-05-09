@@ -3,19 +3,20 @@ Crowdfunder::Application.routes.draw do
 
   root to: 'projects#index'
 
+
   resources :projects do
-
+    resources :comments
     post "add_tag", on: :member
-
     resources :tiers, only: [:create, :edit, :destroy] do
-
       resources :pledges, only: [:new, :create], as: "pledges"
-
     end
-
   end 
 
-  resources :users
+
+  resources :users do
+    resources :comments
+  end
+
 
   resources :sessions, only: [:new, :create, :destroy]
 

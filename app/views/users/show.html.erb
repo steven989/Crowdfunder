@@ -6,3 +6,7 @@
 <h3>Here are all the projects you've backed:</h3>
 <%= render partial: 'projects/project', collection: @projects %>
 
+<div class="comments">
+  <%= render partial: "comments/index", locals: {comments: @user.comments}  %>
+  <%= render partial: "comments/form", locals: {commentable: @user} %>
+</div>
