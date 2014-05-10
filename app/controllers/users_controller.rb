@@ -8,11 +8,21 @@ class UsersController < ApplicationController
 
     def show
 
-        @user = current_user
+        @user = User.find(params[:id])
+
+        if @user == current_user
         @projects = @user.pledges.inject([]) {|projects,pledge| projects.push(pledge.tier.project) unless projects.include? (pledge.tier.project); projects}
         @total_spent = @user.total_spent
+        render :show
+
+        else
+
+        render :userpage
+
+        end
 
     end 
+
 
     def create
 
@@ -29,6 +39,8 @@ class UsersController < ApplicationController
         end 
 
     end 
+
+
 
     private
 

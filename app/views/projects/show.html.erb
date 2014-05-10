@@ -21,7 +21,11 @@
 
 
 <div class="tags">
-
   <%= render partial: "tags" %>
-
 </div>
+
+<div class="comments">
+  <%= render partial: "comments/index", locals: {comments: @project.comments}  %>
+  <%= render partial: "comments/form", locals: {commentable: @project} %>
+</div>
+

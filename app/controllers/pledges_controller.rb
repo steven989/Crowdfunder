@@ -18,8 +18,7 @@ class PledgesController < ApplicationController
     respond_to do |format|
       if @pledge.save
 
-
-        total = Project.total_amount(@project.id)
+        total = @project.total_amount
   
         if total >= @project.goal
 
@@ -28,8 +27,10 @@ class PledgesController < ApplicationController
         end
 
 
-        format.json { render :json => {:pledge_total => Project.total_amount(@project),
-                                       :pledge_count => @pledge.tier.pledges.count }}
+        format.json { render :json => {:pledge_total => @project.total_amount,
+                                       :pledge_count => @pledge.tier.pledges.count,
+                                       :tier_id => @pledge.tier_id }}
+
 
       else
         render @project

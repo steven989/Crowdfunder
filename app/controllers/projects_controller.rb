@@ -37,6 +37,7 @@ class ProjectsController < ApplicationController
 
         @project = Project.find_by(id: params[:id])
         @tier = @project.tiers
+        # @comments = @project.comments
 
     end 
     

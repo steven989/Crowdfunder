@@ -1,7 +1,8 @@
 
 <div class="project">
     <p><%= link_to project.title, project_path(project) %>
-    by <%= /(.*)@/.match(project.user.email)[1] %>
+
+    by <%= link_to /(.*)@/.match(project.user.email)[1], user_path(project.user) %>
     </p>
     <% if project.category %>
     <p>Category: <%= project.category.name %></p>
@@ -11,7 +12,7 @@
     <p>Start: <%= project.start_date %></p>
     <p>End: <%= project.end_date %></p>
     <p>Goal: <%= project.goal %></p>
-    <p id="raised">Amount raised: <span><%= Project.total_amount(project.id) %></span></p>
+    <p id="raised">Amount raised: <span><%= project.total_amount %></span></p>
 
     <p>Time remaining: <%= [(project.end_date - Date.today).to_i,0].max %></p>  
     <p>Tags: <%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
